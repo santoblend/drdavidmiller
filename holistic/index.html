@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GL Pro – Infographic</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #f4f9f1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px 16px;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 40px 36px 44px;
+    max-width: 560px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #3a7d44, #6dbf67, #3a7d44);
+    border-radius: 28px 28px 0 0;
+  }
+
+  .card::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #e8f5e2 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Amazon-style product title at top */
+  .amazon-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a3a20;
+    line-height: 1.55;
+    background: linear-gradient(135deg, #f0faf0, #e8f5e2);
+    border: 1.5px solid #b2dfb0;
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .amazon-title .product-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: #1a3a20;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .amazon-title .keywords {
+    color: #3a7d44;
+    font-weight: 700;
+  }
+
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: #1a3a20;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .headline span { color: #3a7d44; }
+
+  .subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #7aaa7e;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  /* BUY NOW button */
+  .buy-btn {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, #3a7d44, #5aa85e);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 28px;
+    box-shadow: 0 6px 20px rgba(58,125,68,0.35);
+    transition: transform 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+  }
+
+  .buy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(58,125,68,0.45);
+  }
+
+  .buy-btn:active { transform: translateY(0); }
+
+  .buy-btn::after {
+    content: ' →';
+    font-size: 18px;
+  }
+
+  @keyframes breathe {
+    0%   { transform: scale(1);    box-shadow: 0 6px 20px rgba(58,125,68,0.35); }
+    50%  { transform: scale(1.05); box-shadow: 0 12px 32px rgba(58,125,68,0.50); }
+    100% { transform: scale(1);    box-shadow: 0 6px 20px rgba(58,125,68,0.35); }
+  }
+
+  .buy-btn {
+    animation: breathe 2.2s ease-in-out infinite;
+  }
+
+  .group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: #f8fdf6;
+    border: 1.5px solid #dff0d8;
+    transition: transform 0.2s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .group:hover { transform: translateX(4px); }
+  .group:last-of-type { margin-bottom: 0; }
+
+  .herbs-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 148px;
+  }
+
+  .herb-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .herb-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8f5e2, #c8e6c0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    border: 2px solid #b2dfb0;
+  }
+
+  .herb-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #2d5a35;
+    line-height: 1.2;
+  }
+
+  .divider-v {
+    width: 2px;
+    align-self: stretch;
+    background: linear-gradient(to bottom, transparent, #b2dfb0, transparent);
+    flex-shrink: 0;
+  }
+
+  .benefit-col { flex: 1; }
+
+  .benefit-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #3a7d44, #5aa85e);
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+  }
+
+  .benefit-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a3a20;
+    line-height: 1.25;
+  }
+
+  .group.accent {
+    background: linear-gradient(135deg, #f0faf0, #e3f5e1);
+    border-color: #b2dfb0;
+  }
+
+  .footer {
+    margin-top: 28px;
+    text-align: center;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #1a3a20, #2d5a35);
+    border-radius: 16px;
+    color: white;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer p {
+    font-size: 11px;
+    opacity: 0.75;
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .footer strong {
+    font-size: 14px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Amazon-style product title -->
+  <div class="amazon-title">
+    <span class="product-name">Vitaluxa GL Pro – Blood Circulation Support Capsules</span>
+    <span class="keywords">Turmeric, Cinnamon, Prickly Pear, Bitter Melon, Goji Berry, Holy Basil & Olive Leaf Extract</span> – with Vitamin C, Zinc & Chromium – Antioxidant, Immune &amp; Digestive Support – 120 Capsules (60 Days Supply)
+  </div>
+
+  <h1 class="headline">11 ingredients,<br>one <span>powerful ritual</span></h1>
+  <p class="subtitle">complete daily formula</p>
+
+  <!-- BUY NOW button -->
+  <a href="https://pandastyle.life/b?p=GLP2V1&nc=1&preview=1&b=132&fid=358&fnid=2&pfnid=1&pg=9314&template=2b&aff_id={241171}&subid={subid}" target="_blank" class="buy-btn">BUY NOW</a>
+
+  <!-- GROUP 1 -->
+  <div class="group">
+    <div class="herbs-col">
+      <div class="herb-item">
+        <div class="herb-icon">🌿</div>
+        <div class="herb-name">Turmeric Root</div>
+      </div>
+      <div class="herb-item">
+        <div class="herb-icon">🫒</div>
+        <div class="herb-name">Olive Leaf Extract</div>
+      </div>
+      <div class="herb-item">
+        <div class="herb-icon">🌱</div>
+        <div class="herb-name">Holy Basil</div>
+      </div>
+    </div>
+    <div class="divider-v"></div>
+    <div class="benefit-col">
+      <div class="benefit-tag">Circulation</div>
+      <div class="benefit-title">Supports Blood Circulation & Cardiovascular Health</div>
+    </div>
+  </div>
+
+  <!-- GROUP 2 -->
+  <div class="group accent">
+    <div class="herbs-col">
+      <div class="herb-item">
+        <div class="herb-icon">🥒</div>
+        <div class="herb-name">Bitter Melon</div>
+      </div>
+      <div class="herb-item">
+        <div class="herb-icon">🌵</div>
+        <div class="herb-name">Prickly Pear</div>
+      </div>
+      <div class="herb-item">
+        <div class="herb-icon">⚙️</div>
+        <div class="herb-name">Chromium</div>
+      </div>
+    </div>
+    <div class="divider-v"></div>
+    <div class="benefit-col">
+      <div class="benefit-tag">Blood Sugar</div>
+      <div class="benefit-title">Blood Sugar Balance & Healthy Metabolism</div>
+    </div>
+  </div>
+
+  <!-- GROUP 3 -->
+  <div class="group">
+    <div class="herbs-col">
+      <div class="herb-item">
+        <div class="herb-icon">🍒</div>
+        <div class="herb-name">Goji Berry</div>
+      </div>
+      <div class="herb-item">
+        <div class="herb-icon">🍊</div>
+        <div class="herb-name">Vitamin C</div>
+      </div>
+      <div class="herb-item">
+        <div class="herb-icon">🦠</div>
+        <div class="herb-name">Zinc</div>
+      </div>
+    </div>
+    <div class="divider-v"></div>
+    <div class="benefit-col">
+      <div class="benefit-tag">Immunity</div>
+      <div class="benefit-title">Immune Defense & Antioxidant Protection</div>
+    </div>
+  </div>
+
+  <!-- GROUP 4 -->
+  <div class="group accent">
+    <div class="herbs-col">
+      <div class="herb-item">
+        <div class="herb-icon">🌶️</div>
+        <div class="herb-name">Cinnamon (Cassia)</div>
+      </div>
+      <div class="herb-item">
+        <div class="herb-icon">🌿</div>
+        <div class="herb-name">Cassia Bark</div>
+      </div>
+    </div>
+    <div class="divider-v"></div>
+    <div class="benefit-col">
+      <div class="benefit-tag">Digestion</div>
+      <div class="benefit-title">Digestive Health & Gut Comfort</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Dietary Supplement</p>
+    <strong>Vitaluxa GL Pro — Blood Circulation*</strong>
+  </div>
+
+</div>
+</body>
+</html>
